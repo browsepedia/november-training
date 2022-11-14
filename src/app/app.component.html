@@ -1,22 +1,7 @@
 <div>Hello November Training</div>
 
-<div>
-  {{ title | uppercase | lowercase }}
-</div>
+<app-child *ngIf="showChild" [title]="title">
+  <h1>Hello from the other side</h1>
 
-<hr />
-<h2>
-  {{ employee | perforate: "firstName" }}
-</h2>
-
-<hr />
-<div>
-  {{ nums | filterOddNumbers | perforate: 0 }}
-</div>
-
-<app-hello-world
-  appHoverBackground="green"
-  (mouseEnter)="onMouseEnter($event)"
-  [title]="title"
-  (buttonClick)="onButtonClick($event)"
-></app-hello-world>
+  <h4 secondSlot>Hello second slot</h4>
+</app-child>
