@@ -1,9 +1,13 @@
-<div #myDiv>View Child example</div>
+<h1 #myDiv>
+  {{ title }}
+</h1>
 
 <div style="width: 100%; margin-left: 100px">
   <b>
     <ng-content></ng-content>
   </b>
 </div>
+
+{{ title2 }}
 
 <ng-content select="secondSlot"></ng-content>

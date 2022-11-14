@@ -1,7 +1,19 @@
-<div>Hello November Training</div>
+<div #div>Hello November Training</div>
 
 <app-child *ngIf="showChild" [title]="title">
   <h1>Hello from the other side</h1>
 
   <h4 secondSlot>Hello second slot</h4>
 </app-child>
+
+<div appChild></div>
+
+<mat-tab-group>
+  <mat-tab label="First Tab">
+    <div>Hello</div>
+  </mat-tab>
+
+  <mat-tab label="First Ta2">
+    <div>Hello</div>
+  </mat-tab>
+</mat-tab-group>

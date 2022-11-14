@@ -5,25 +5,21 @@ import {
   ViewChild,
   ElementRef,
   OnInit,
+  ChangeDetectorRef,
 } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
 })
-export class ChildComponent implements OnInit, AfterViewInit {
-  constructor() {
-    console.log(this._myDiv);
+export class ChildComponent {
+  private _defaultTitle = 'Default Title';
+
+  @Input() public title: string = this._defaultTitle;
+
+  protected title2: string = 'test';
+
+  public resetTitle(): void {
+    this.title = this._defaultTitle;
   }
-
-  @Input() public title: string = '';
-
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {
-    this._myDiv?.nativeElement.classList.add('background-red');
-  }
-
-  @ViewChild('myDiv')
-  private _myDiv: ElementRef<HTMLDivElement> | undefined;
 }
