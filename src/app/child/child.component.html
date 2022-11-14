@@ -1,13 +1,17 @@
-<h1 #myDiv>
-  {{ title }}
-</h1>
+<mat-card>
+  <div>Child works</div>
 
-<div style="width: 100%; margin-left: 100px">
-  <b>
-    <ng-content></ng-content>
-  </b>
-</div>
+  <textarea> </textarea>
 
-{{ title2 }}
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="sendMessage('Sent from child')"
+  >
+    Send to sibling
+  </button>
 
-<ng-content select="secondSlot"></ng-content>
+  <div>
+    {{ message }}
+  </div>
+</mat-card>

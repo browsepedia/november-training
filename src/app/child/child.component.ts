@@ -1,25 +1,20 @@
-import {
-  Component,
-  Input,
-  AfterViewInit,
-  ViewChild,
-  ElementRef,
-  OnInit,
-  ChangeDetectorRef,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MessengerService } from '../messenger.service';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
 })
 export class ChildComponent {
-  private _defaultTitle = 'Default Title';
+  constructor(private _service: MessengerService) {
+    console.log(this._service);
+  }
 
-  @Input() public title: string = this._defaultTitle;
+  public get message(): string {
+    return this._service.message;
+  }
 
-  protected title2: string = 'test';
-
-  public resetTitle(): void {
-    this.title = this._defaultTitle;
+  sendMessage(text: string): void {
+    this._service.setMessage(text);
   }
 }
