@@ -4,10 +4,27 @@
   background-color: red;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; padding: 24px; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  }
 
 
 .flex {
   display: flex;
   gap: 24px;
+}
+
+
+.w-full {
+  width: 100%;
+}
+
+.router-link-active {
+  background-color: aquamarine;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }

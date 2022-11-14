@@ -1,0 +1,16 @@
+<mat-list>
+  <mat-list-item *ngFor="let user of users">
+    <div class="w-full flex items-center justify-between">
+      <div>{{ user.name }}</div>
+      <button
+        [routerLink]="['./', user.id, 'details']"
+        [queryParams]="{ search: 'test' }"
+        fragment="history"
+        color="primary"
+        mat-icon-button
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </mat-list-item>
+</mat-list>

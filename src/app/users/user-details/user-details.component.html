@@ -1,0 +1,11 @@
+<div class="flex items-center">
+  <button mat-icon-button [routerLink]="['../../', userId - 1, 'details']">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+
+  <div>Current User id is: {{ userId }}</div>
+
+  <button mat-icon-button [routerLink]="['../../', userId + 1, 'details']">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>
