@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/users.models';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { UserDataService } from '../user.data-service';
+import { User } from 'src/app/users.models';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-user-list',
@@ -16,21 +19,24 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatIconModule,
     RouterModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
-export class UserListComponent implements OnInit {
-  constructor() {}
+export class UserListComponent {
+  constructor(private _dataService: UserDataService) {
+    this._dataService.fetchUsers().subscribe((users) => {
+      this.users = users;
+      this.filteredUsers = users;
+    });
+  }
 
-  ngOnInit() {}
+  protected users: User[] = [];
+  protected filteredUsers: User[] = [];
 
-  protected users: User[] = [
-    {
-      id: 1,
-      name: 'Gigel',
-    },
-    {
-      id: 2,
-      name: 'Bucur',
-    },
-  ];
+  protected onSearchChange(value: string): void {
+    this.filteredUsers = this.users.filter((user) =>
+      user.name.toLowerCase().includes(value.toLowerCase())
+    );
+  }
 }
