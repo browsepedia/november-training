@@ -1,16 +1,11 @@
 <mat-form-field>
   <mat-label>Search Users</mat-label>
 
-  <input
-    matInput
-    placeholder="Search Users"
-    #input
-    (input)="onSearchChange(input.value)"
-  />
+  <input matInput placeholder="Search Users" [formControl]="searchCtrl" />
 </mat-form-field>
 
 <mat-list>
-  <mat-list-item *ngFor="let user of filteredUsers">
+  <mat-list-item *ngFor="let user of filteredUsers$ | async">
     <div class="w-full flex items-center justify-between">
       <div>{{ user.name }}</div>
       <button
