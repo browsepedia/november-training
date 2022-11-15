@@ -10,8 +10,6 @@
       <div>{{ user.name }}</div>
       <button
         [routerLink]="['./', user.id, 'details']"
-        [queryParams]="{ search: 'test' }"
-        fragment="history"
         color="primary"
         mat-icon-button
       >

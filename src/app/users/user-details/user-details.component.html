@@ -1,11 +1,11 @@
-<div class="flex items-center">
-  <button mat-icon-button [routerLink]="['../../', userId - 1, 'details']">
-    <mat-icon>keyboard_arrow_left</mat-icon>
-  </button>
+<div *ngIf="user$ | async as user">
+  <h1>
+    {{ user.name }}
+  </h1>
 
-  <div>Current User id is: {{ userId }}</div>
+  <hr />
 
-  <button mat-icon-button [routerLink]="['../../', userId + 1, 'details']">
-    <mat-icon>keyboard_arrow_right</mat-icon>
-  </button>
+  <div>
+    {{ user.company.name }}
+  </div>
 </div>

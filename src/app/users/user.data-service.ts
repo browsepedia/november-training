@@ -12,4 +12,10 @@ export class UserDataService {
   fetchUsers(): Observable<User[]> {
     return this._http.get<User[]>('https://jsonplaceholder.typicode.com/users');
   }
+
+  fetchUser(userId: number): Observable<User> {
+    return this._http.get<User>(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+  }
 }

@@ -9,7 +9,9 @@ import { User } from 'src/app/users.models';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { combineLatest, map, Observable, startWith, Subscription } from 'rxjs';
+import { debounceTime, interval, Subscription, tap } from 'rxjs';
+import { UserListFacade } from './user-list.facade';
+import { AutoUnsubscribe } from 'src/app/auto-unsubscribe';
 
 @Component({
   selector: 'app-user-list',
@@ -25,27 +27,21 @@ import { combineLatest, map, Observable, startWith, Subscription } from 'rxjs';
     MatInputModule,
     ReactiveFormsModule,
   ],
+  providers: [UserListFacade],
 })
+@AutoUnsubscribe()
 export class UserListComponent {
-  constructor(private _dataService: UserDataService) {
-    this._dataService.fetchUsers();
-
-    const search$ = this.searchCtrl.valueChanges.pipe(startWith(''));
-
-    this.filteredUsers$ = combineLatest([
-      _dataService.fetchUsers(),
-      search$,
-    ]).pipe(
-      map(([users, searchValue]) => this._filterUsers(users, searchValue))
-    );
+  constructor(private _store: UserListFacade) {
+    this._searchValue$ = this.searchCtrl.valueChanges
+      .pipe(
+        debounceTime(1000),
+        tap((value) => _store.setSearchValue(value))
+      )
+      .subscribe();
   }
 
   protected searchCtrl = new FormControl('', { nonNullable: true });
-  protected filteredUsers$: Observable<User[]>;
+  protected filteredUsers$ = this._store.filteredUsers$;
 
-  private _filterUsers(users: User[], searchValue: string): User[] {
-    return users.filter((user) =>
-      user.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-  }
+  private _searchValue$: Subscription;
 }
