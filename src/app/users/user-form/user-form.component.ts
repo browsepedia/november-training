@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -19,6 +19,7 @@ import {
   RequiredField,
 } from './user-form.validators';
 import { tap } from 'rxjs';
+import { User } from 'src/app/users.models';
 
 @Component({
   selector: 'app-user-form',
@@ -45,6 +46,10 @@ export class UserFormComponent {
         )
       )
       .subscribe();
+  }
+
+  @Input() public set user(user: User) {
+    this.form.patchValue(user);
   }
 
   protected form = createUserForm();
