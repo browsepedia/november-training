@@ -10,19 +10,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NumbersComponent } from './numbers/numbers.component';
-import { CheckboxFieldComponent } from './fields/checkbox-field/checkbox-field.component';
-import { TextFieldComponent } from './fields/text-field/text-field.component';
-import { DateFieldComponent } from './fields/date-field/date-field.component';
-import { FieldHostComponent } from './fields/field-host.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StarRatingFieldComponent } from './fields/star-rating-field/star-rating-field.component';
+
+import { NumbersComponent, StarRatingFieldComponent } from '@components';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,8 +27,6 @@ import { StarRatingFieldComponent } from './fields/star-rating-field/star-rating
     MatToolbarModule,
     HttpClientModule,
     NumbersComponent,
-    FieldHostComponent,
-    TextFieldComponent,
     ReactiveFormsModule,
     StarRatingFieldComponent,
   ],

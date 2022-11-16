@@ -4,14 +4,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { UserDataService } from '../user.data-service';
-import { User } from 'src/app/users.models';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime, interval, Subscription, tap } from 'rxjs';
+import { debounceTime, Subscription, tap } from 'rxjs';
 import { UserListFacade } from './user-list.facade';
-import { AutoUnsubscribe } from 'src/app/auto-unsubscribe';
+import { AutoUnsubscribe } from '@utils';
 
 @Component({
   selector: 'app-user-list',

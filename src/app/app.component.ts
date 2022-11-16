@@ -1,9 +1,6 @@
-import { Component, Type } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FieldType } from './field-type.models';
-import { CheckboxFieldComponent } from './fields/checkbox-field/checkbox-field.component';
-import { DateFieldComponent } from './fields/date-field/date-field.component';
-import { TextFieldComponent } from './fields/text-field/text-field.component';
+import { FieldType } from '@models';
 
 @Component({
   selector: 'app-root',

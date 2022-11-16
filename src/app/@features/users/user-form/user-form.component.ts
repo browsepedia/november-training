@@ -13,13 +13,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { createUserForm } from './user-form.form';
 import { MatSelectModule } from '@angular/material/select';
-import {
-  MatchValidator,
-  MinLengthValidator,
-  RequiredField,
-} from './user-form.validators';
+
 import { tap } from 'rxjs';
-import { User } from 'src/app/users.models';
+import { User } from '@models';
+import { StarRatingFieldComponent } from '@components';
 
 @Component({
   selector: 'app-user-form',
@@ -32,6 +29,7 @@ import { User } from 'src/app/users.models';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    StarRatingFieldComponent,
   ],
 })
 export class UserFormComponent {

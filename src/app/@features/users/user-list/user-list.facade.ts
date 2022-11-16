@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, map, Observable, tap } from 'rxjs';
-import { User } from 'src/app/users.models';
-import { UserDataService } from '../user.data-service';
+import { User } from '@models';
+import { UserDataService } from '@data-services';
 
 @Injectable()
 export class UserListFacade {

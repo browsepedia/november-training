@@ -1,5 +1,5 @@
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/users.models';
+import { User } from '@models';
 import {
   MatchValidator,
   MinLengthValidator,

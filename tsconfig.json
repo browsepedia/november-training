@@ -18,10 +18,25 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"],
+    "paths": {
+      "@components": ["./src/app/@components/index.ts"],
+      "@components/*": ["./src/app/@components/*"],
+      "@data-services": ["./src/app/@data-services/index.ts"],
+      "@data-services/*": ["./src/app/@data-services/*"],
+      "@facades": ["./src/app/@facades/index.ts"],
+      "@facades/*": ["./src/app/@facades/*"],
+      "@directives": ["./src/app/@directives/index.ts"],
+      "@directives/*": ["./src/app/@directives/*"],
+      "@features": ["./src/app/@features/index.ts"],
+      "@features/*": ["./src/app/@features/*"],
+      "@pipes": ["./src/app/@pipes/index.ts"],
+      "@pipes/*": ["./src/app/@pipes/*"],
+      "@models": ["./src/app/@models/index.ts"],
+      "@models/*": ["./src/app/@models/*"],
+      "@utils": ["./src/app/@utils/index.ts"],
+      "@utils/*": ["./src/app/@utils/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

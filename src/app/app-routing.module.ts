@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () =>
+      import('@features/home/home.component').then((m) => m.HomeComponent),
   },
   {
     path: 'users',
     loadChildren: () =>
-      import('./users/users.module').then((m) => m.UsersModule),
+      import('@features/users/users.module').then((m) => m.UsersModule),
   },
   {
     path: 'about',
-    component: AboutComponent,
+    loadComponent: () =>
+      import('@features/about/about.component').then((m) => m.AboutComponent),
   },
   {
     path: '**',

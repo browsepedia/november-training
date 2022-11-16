@@ -13,7 +13,7 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { User } from 'src/app/users.models';
+import { User } from '@models';
 import { UserFormComponent } from '../user-form/user-form.component';
 import { UserDetailsFacade } from './user-details.facade';
 
