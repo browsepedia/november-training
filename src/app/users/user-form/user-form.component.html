@@ -11,13 +11,13 @@
 
     <mat-error
       *ngIf="
-        form.controls.username.errors &&
-        form.controls.username.errors['minLength']
+        form.controls['username'].errors &&
+        form.controls['username'].errors['minLength']
       "
     >
       Must be atleast
-      {{ form.controls.username.errors["minLength"].minLength }}. Currently
-      {{ form.controls.username.errors["minLength"].actualLength }}
+      {{ form.controls["username"].errors["minLength"].minLength }}. Currently
+      {{ form.controls["username"].errors["minLength"].actualLength }}
     </mat-error>
   </mat-form-field>
 
@@ -26,6 +26,35 @@
     <input matInput placeholder="Email" formControlName="email" />
     <mat-error>Must be a valid email</mat-error>
   </mat-form-field>
+
+  <div class="flex flex-col" formGroupName="password">
+    <h4>Password</h4>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" formControlName="password" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm</mat-label>
+      <input matInput placeholder="Confirm" formControlName="confirm" />
+    </mat-form-field>
+  </div>
+
+  <div class="flex flex-col">
+    <ng-container
+      *ngFor="let statusFormGorup of statusesCtrl"
+      [formGroup]="statusFormGorup"
+    >
+      <mat-form-field>
+        <mat-label>Select status</mat-label>
+        <input matInput formControlName="status" />
+      </mat-form-field>
+    </ng-container>
+
+    <button mat-flat-button color="primary" (click)="onAddStatus()">
+      Add Status
+    </button>
+  </div>
 
   <button
     mat-flat-button

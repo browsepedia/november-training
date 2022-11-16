@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
+  FormArray,
+  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -9,8 +11,14 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { combineLatest, debounceTime, map } from 'rxjs';
-import { MinLengthValidator, RequiredField } from './user-form.validators';
+import { createUserForm } from './user-form.form';
+import { MatSelectModule } from '@angular/material/select';
+import {
+  MatchValidator,
+  MinLengthValidator,
+  RequiredField,
+} from './user-form.validators';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-user-form',
@@ -22,24 +30,41 @@ import { MinLengthValidator, RequiredField } from './user-form.validators';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
   ],
 })
 export class UserFormComponent {
   constructor() {
-    this.form.valueChanges.subscribe((formValue) => console.log(this.form));
+    this.form.controls['statuses'].valueChanges
+      .pipe(
+        tap(() =>
+          this.form.controls['password'].setValue({
+            password: '',
+            confirm: '',
+          })
+        )
+      )
+      .subscribe();
   }
 
-  protected form = new FormGroup({
-    name: new FormControl('', { validators: RequiredField }),
-    username: new FormControl('', {
-      validators: [Validators.required, MinLengthValidator(5)],
-    }),
-    email: new FormControl('', {
-      validators: [Validators.required, Validators.email],
-    }),
-  });
+  protected form = createUserForm();
 
   protected onSubmit(): void {
     console.log(this.form);
+  }
+
+  protected get statusesCtrl(): FormGroup[] {
+    return (this.form.controls['statuses'] as FormArray)
+      .controls as FormGroup[];
+  }
+
+  protected onAddStatus(): void {
+    const statusesCtrl = this.form.controls['statuses'] as FormArray;
+    statusesCtrl.push(
+      new FormGroup({
+        id: new FormControl(1),
+        status: new FormControl('Mid', { nonNullable: true }),
+      })
+    );
   }
 }
