@@ -1,0 +1,51 @@
+<div class="flex justify-start">
+  <button
+    mat-icon-button
+    [disabled]="disabled"
+    (click)="onStarClick($event, 0)"
+  >
+    <mat-icon *ngIf="rating === 0" class="text-6xl">star_border</mat-icon>
+    <mat-icon *ngIf="rating === 0.5" class="text-6xl">star_half</mat-icon>
+    <mat-icon *ngIf="rating >= 1" class="text-6xl">star</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [disabled]="disabled"
+    (click)="onStarClick($event, 1)"
+  >
+    <mat-icon *ngIf="rating <= 1" class="text-6xl">star_border</mat-icon>
+    <mat-icon *ngIf="rating === 1.5" class="text-6xl">star_half</mat-icon>
+    <mat-icon *ngIf="rating >= 2" class="text-6xl">star</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [disabled]="disabled"
+    (click)="onStarClick($event, 2)"
+  >
+    <mat-icon *ngIf="rating <= 2" class="text-6xl">star_border</mat-icon>
+    <mat-icon *ngIf="rating === 2.5" class="text-6xl">star_half</mat-icon>
+    <mat-icon *ngIf="rating >= 3" class="text-6xl">star</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [disabled]="disabled"
+    (click)="onStarClick($event, 3)"
+  >
+    <mat-icon *ngIf="rating <= 3" class="text-6xl">star_border</mat-icon>
+    <mat-icon *ngIf="rating === 3.5" class="text-6xl">star_half</mat-icon>
+    <mat-icon *ngIf="rating >= 4" class="text-6xl">star</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [disabled]="disabled"
+    (click)="onStarClick($event, 4)"
+  >
+    <mat-icon *ngIf="rating <= 4" class="text-6xl">star_border</mat-icon>
+    <mat-icon *ngIf="rating === 4.5" class="text-6xl">star_half</mat-icon>
+    <mat-icon *ngIf="rating >= 5" class="text-6xl">star</mat-icon>
+  </button>
+</div>

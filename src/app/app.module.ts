@@ -14,6 +14,12 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NumbersComponent } from './numbers/numbers.component';
+import { CheckboxFieldComponent } from './fields/checkbox-field/checkbox-field.component';
+import { TextFieldComponent } from './fields/text-field/text-field.component';
+import { DateFieldComponent } from './fields/date-field/date-field.component';
+import { FieldHostComponent } from './fields/field-host.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StarRatingFieldComponent } from './fields/star-rating-field/star-rating-field.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AboutComponent],
@@ -27,6 +33,10 @@ import { NumbersComponent } from './numbers/numbers.component';
     MatToolbarModule,
     HttpClientModule,
     NumbersComponent,
+    FieldHostComponent,
+    TextFieldComponent,
+    ReactiveFormsModule,
+    StarRatingFieldComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
