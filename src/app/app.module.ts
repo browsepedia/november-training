@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NumbersComponent } from './numbers/numbers.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AboutComponent],
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatToolbarModule,
     HttpClientModule,
+    NumbersComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

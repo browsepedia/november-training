@@ -28,4 +28,12 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+{{ numbers | json }}
+
+<app-numbers [numbers]="numbers"></app-numbers>
+
+<button mat-flat-button color="primary" (click)="addNumber()">
+  Add number
+</button>
+
 <router-outlet></router-outlet>
