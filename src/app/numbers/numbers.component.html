@@ -1,6 +1,14 @@
-<h1>Numbers</h1>
-<ul>
-  <li *ngFor="let num of numbers">
-    {{ num }}
-  </li>
-</ul>
+<div>
+  <h1>Numbers</h1>
+  <ul>
+    <li *ngFor="let num of numbers">
+      {{ num }}
+    </li>
+  </ul>
+
+  <div>Current number is: {{ number$ | async }}</div>
+
+  <button (click)="onButtonClick()" mat-flat-button color="accent">
+    Click
+  </button>
+</div>
