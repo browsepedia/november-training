@@ -14,13 +14,20 @@ import {
   tap,
 } from 'rxjs';
 import { User } from 'src/app/users.models';
+import { UserFormComponent } from '../user-form/user-form.component';
 import { UserDetailsFacade } from './user-details.facade';
 
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, RouterModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule,
+    UserFormComponent,
+  ],
   providers: [UserDetailsFacade],
 })
 export class UserDetailsComponent {

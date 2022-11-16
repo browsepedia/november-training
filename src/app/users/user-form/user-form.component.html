@@ -1,0 +1,38 @@
+<div class="flex flex-col" [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name" />
+    <mat-error>Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" formControlName="username" />
+
+    <mat-error
+      *ngIf="
+        form.controls.username.errors &&
+        form.controls.username.errors['minLength']
+      "
+    >
+      Must be atleast
+      {{ form.controls.username.errors["minLength"].minLength }}. Currently
+      {{ form.controls.username.errors["minLength"].actualLength }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" />
+    <mat-error>Must be a valid email</mat-error>
+  </mat-form-field>
+
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="form.invalid"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</div>

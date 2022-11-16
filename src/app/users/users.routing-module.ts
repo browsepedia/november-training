@@ -13,18 +13,19 @@ const routes: Route[] = [
           import('./user-list/user-list.component').then(
             (m) => m.UserListComponent
           ),
-        title: 'User List',
       },
       {
         path: ':userId/details',
-
-        data: {
-          hellow: 'world',
-        },
-        title: 'User Details',
         loadComponent: () =>
           import('./user-details/user-details.component').then(
             (m) => m.UserDetailsComponent
+          ),
+      },
+      {
+        path: 'new',
+        loadComponent: () =>
+          import('./user-form/user-form.component').then(
+            (m) => m.UserFormComponent
           ),
       },
     ],

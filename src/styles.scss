@@ -9,7 +9,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  }
 
 .flex {
   display: flex;
-  gap: 24px;
+  gap: 12px;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 

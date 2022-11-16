@@ -1,11 +1,3 @@
 <div *ngIf="user$ | async as user">
-  <h1>
-    {{ user.name }}
-  </h1>
-
-  <hr />
-
-  <div>
-    {{ user.company.name }}
-  </div>
+  <app-user-form></app-user-form>
 </div>
