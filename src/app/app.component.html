@@ -28,20 +28,6 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="flex">
-  <button mat-flat-button color="primary" (click)="fieldType = 'text'">
-    Text
-  </button>
-
-  <button mat-flat-button color="primary" (click)="fieldType = 'date'">
-    Date
-  </button>
-
-  <button mat-flat-button color="primary" (click)="fieldType = 'checkbox'">
-    Checkbox
-  </button>
-</div>
-
-<app-star-rating-field [formControl]="formCtrl"></app-star-rating-field>
+<button #myButton mat-flat-button>My Clicked button</button>
 
 <router-outlet></router-outlet>
